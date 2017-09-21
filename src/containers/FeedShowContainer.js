@@ -11,7 +11,7 @@ class FeedShowContainer extends React.Component {
     return (
       <div>
         <Header content="Flickr Public Feed"/>
-        <div className="container-fluid">
+        <div className="photo-single container-fluid">
         {
           matchedPhoto !== null ? <FeedShow content={matchedPhoto}/> : <h1>Content not found.</h1>
         }

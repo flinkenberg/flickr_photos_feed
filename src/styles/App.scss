@@ -1,2 +1,146 @@
 @import "bootstrap_custom/bootstrap";
 @import "bootstrap_custom/bootstrap-theme";
+
+@import "variables";
+
+.container-fluid {
+  padding: 0 30px;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 700;
+}
+h1 {
+  font-size: 2.5em;
+  line-height: 1.5em;
+}
+a {
+  color: $link;
+  &:hover {
+    color: $link-hover;
+  }
+}
+.btn.btn-custom {
+  padding: 7.5px 30px;
+  font-size: 1.25em;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: $white;
+  border: 1px solid $primary;
+  text-transform: uppercase;
+  &:hover {
+    background-color: darken($primary, 0);
+    border-color: darken($primary, 0);
+    color: $white;
+  }
+}
+.app-header {
+  height: 4em;
+  line-height: 4em;
+  background-color: $header-bg;
+  .header-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: $text-main;
+    > a {
+      color: $text-main;
+      text-decoration: none;
+      &:hover {
+        color: $link;
+      }
+    }
+  }
+}
+.app-feed {
+  .item {
+    padding: 15px 0 0 0;
+    border-bottom: 1px solid $subtle-grey;
+    &:hover {
+      background-color: $subtle-grey;
+    }
+    .title {
+      h3 {
+        font-size: 2em;
+        margin-top: 0;
+      }
+    }
+    .meta {
+      padding: 15px 0;
+      span {
+        display: inline-block;
+        text-transform: uppercase;
+        padding-right: 15px;
+        color: $text-muted;
+        &:not(:last-child) {
+          &::after {
+            position: absolute;
+            content: '|';
+            padding-left: 7.5px;
+          }
+        }
+      }
+    }
+    .thumbnail {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      > img {
+        width: 100%;
+        max-height: 150px;
+      }
+    }
+  }
+}
+.photo-single {
+  .item {
+    .back {
+      margin-top: 30px;
+    }
+    .thumbnail {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      > img {
+        width: 100%;
+      }
+    }
+    .meta {
+      padding: 15px 15px;
+      border-bottom: 1px solid $subtle-grey;
+      span {
+        display: inline-block;
+        text-transform: uppercase;
+        padding-right: 15px;
+        color: $text-muted;
+        &:not(:last-child) {
+          &::after {
+            position: absolute;
+            content: '|';
+            padding-left: 7.5px;
+          }
+        }
+      }
+    }
+    .description {
+      padding-top: 15px;
+      .content {
+        padding: 0 15px;
+        p {
+          font-size: 1.2em;
+          line-height: 2em;
+        }
+      }
+      .tags {
+        margin: 15px 0 0 0;
+        padding: 0 15px;
+        span.tag {
+          display: inline-block;
+          text-transform: uppercase;
+          padding-right: 15px;
+          color: $text-muted;
+        }
+      }
+    }
+  }
+}
