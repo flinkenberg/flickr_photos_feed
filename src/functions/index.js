@@ -3,13 +3,15 @@ import store from '../store';
 import * as action from '../actions';
 
 export const getAll = () => {
+  store.dispatch(action.startFetching());
   $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", {
     tags: "potato",
     tagmode: "all",
     format: "json"
   })
-    .done(function( data ) {
+    .done(data => {
       // Assign ID for data items.
+      store.dispatch(action.doneFetching());
       data.items.map(item => {
         let id = item.link.split('/');
         id = id[id.length - 2];
@@ -17,6 +19,10 @@ export const getAll = () => {
         return item;
       });
       store.dispatch(action.photosFetch(data.items));
+    })
+    .fail(error => {
+      store.dispatch(action.failFetching());
+      console.log(error);
     });
 }
 
