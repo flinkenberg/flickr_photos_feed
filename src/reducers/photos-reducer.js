@@ -2,7 +2,8 @@ import {
   PHOTOS_FETCH,
   START_FETCHING,
   FAIL_FETCHING,
-  DONE_FETCHING
+  DONE_FETCHING,
+  STORE_FILTERED_RESULTS
  } from '../actions/actionTypes';
 
 const initialState = {
@@ -10,7 +11,8 @@ const initialState = {
     error: false,
     isFetching: false
   },
-  items: []
+  items: [],
+  filtered: []
 }
 
 const photosReducer = (state = initialState, action) => {
@@ -20,7 +22,13 @@ const photosReducer = (state = initialState, action) => {
     case FAIL_FETCHING:
       return {...state, fetching: { isFetching: action.isFetching, error: action.error }}
     case PHOTOS_FETCH:
-      return {...state, items: [...state.items, ...action.data]}
+      return {
+        ...state,
+        items: action.data,
+        filtered: action.data
+      }
+    case STORE_FILTERED_RESULTS:
+      return {...state, filtered: action.results}
     default:
       return state;
   }

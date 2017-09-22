@@ -1,16 +1,11 @@
 import {
-  TEST,
   PHOTOS_FETCH,
   START_FETCHING,
   FAIL_FETCHING,
-  DONE_FETCHING
+  DONE_FETCHING,
+  FOCUS_SEARCH,
+  STORE_FILTERED_RESULTS
 } from './actionTypes';
-
-export const performTest = () => {
-  return {
-    type: TEST
-  }
-}
 
 export const photosFetch = (data) => {
   return {
@@ -40,5 +35,19 @@ export const failFetching = () => {
     type: FAIL_FETCHING,
     isFetching: false,
     error: true
+  }
+}
+
+export const focusSearch = () => {
+  return {
+    type: FOCUS_SEARCH,
+    inputIsFocused: true
+  }
+}
+
+export const storeFilteredResults = (results) => {
+  return {
+    type: STORE_FILTERED_RESULTS,
+    results: results
   }
 }

@@ -1,11 +1,15 @@
-import { TEST } from '../actions/actionTypes';
+import { FOCUS_SEARCH } from '../actions/actionTypes';
 
-const initialState = {}
+const initialState = {
+  app: {
+    inputIsFocused: false
+  }
+}
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TEST:
-      return {...state, ...state}
+    case FOCUS_SEARCH:
+      return {...state, app: { inputIsFocused: action.inputIsFocused }}
     default:
       return state;
   }

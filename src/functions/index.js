@@ -11,7 +11,6 @@ export const getAll = () => {
   })
     .done(data => {
       // Assign ID for data items.
-      store.dispatch(action.doneFetching());
       data.items.map(item => {
         let id = item.link.split('/');
         id = id[id.length - 2];
@@ -19,6 +18,7 @@ export const getAll = () => {
         return item;
       });
       store.dispatch(action.photosFetch(data.items));
+      store.dispatch(action.doneFetching());
     })
     .fail(error => {
       store.dispatch(action.failFetching());

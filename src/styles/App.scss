@@ -3,8 +3,12 @@
 
 @import "variables";
 
+body {
+  color: $body-text;
+}
 .container-fluid {
   padding: 0 30px;
+  min-width: 400px;
 }
 h1,h2,h3,h4,h5,h6 {
   font-weight: 700;
@@ -29,15 +33,14 @@ a {
   border: 1px solid $primary;
   text-transform: uppercase;
   &:hover {
-    background-color: darken($primary, 0);
-    border-color: darken($primary, 0);
-    color: $white;
+    background-color: $primary;
+    border-color: $primary;
+    color: darken($primary,20);
   }
 }
 .loader {
   padding: 15px 0;
-  font-size: 2em;
-  text-align: center;
+  font-size: 2.5em;
   font-weight: 700;
 }
 .app-header {
@@ -55,6 +58,27 @@ a {
         color: $link;
       }
     }
+  }
+}
+.search {
+  padding: 0 30px;
+  background-color: darken($primary,20);
+  .magnifying-glass {
+    display: inline-block;
+    margin: 0 15px;
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+  }
+  .search-input {
+    display: inline-block;
+    width: 85%;
+    height: 2.5em;
+    font-size: 1.5em;
+    background: darken($primary,20);
+    border: 0;
+    color: $primary;
+    outline: none;
   }
 }
 .app-feed {

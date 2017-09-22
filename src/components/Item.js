@@ -16,7 +16,7 @@ const  Item = ({content}) => {
         </div>
         <div className="meta">
           <span><a href={'https://www.flickr.com/photos/'+content.author_id} target="_blank">Post author</a></span>
-          <span>{content.date_taken}</span>
+          <span>Published: {content.date_taken}</span>
           <span><a href={content.link} target="_blank">View on Flickr</a></span>
         </div>
       </div>
